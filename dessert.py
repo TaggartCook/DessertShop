@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+import receipt
 class DessertItem(ABC):
     def __init__(self,name):
         self.name = name
@@ -8,7 +9,10 @@ class DessertItem(ABC):
 
     def calculate_cost(self):
         pass
-
+    
+    def calculate_tax(self):
+        tax = self.calculate_cost() * (self.tax_percent)
+        return tax
 
 class Candy(DessertItem):
     def __init__(self,name,candy_weight,price_per_pound):
@@ -19,10 +23,6 @@ class Candy(DessertItem):
     def calculate_cost(self):
         cost = self.candy_weight * self.price_per_pound
         return cost
-
-    def calculate_tax(self):
-        tax = self.calculate_cost * (self.tax_percent)
-        return tax
 
 class Cookie(DessertItem):
     def __init__(self,name,cookie_quantity,price_per_dozen):
@@ -67,13 +67,13 @@ class Order():
     def order_cost(self):
         total_cost = 0.00
         for i in self.order:
-            total_cost += i.cost()
+            total_cost += i.calculate_cost()
         return total_cost
     
     def order_tax(self):
         total_tax = 0.00
         for i in self.order:
-            total_tax += i.tax()
+            total_tax += i.calculate_tax()
         return round(total_tax)
 
 def main():
@@ -96,5 +96,21 @@ def main():
 
 
     print("Total number of items in order:", len(order1))
+
+    
+    receipt.make_receipt(
+        DATA = [ 
+            [ "Date" , "Name", "Subscription", "Price (Rs.)" ], 
+            [ 
+                "16/11/2020", 
+                "Full Stack Development with React & Node JS - Live", 
+                "Lifetime", 
+                "10,999.00/-", 
+            ], 
+            [ "16/11/2020", "Geeks Classes: Live Session", "6 months", "9,999.00/-"], 
+            [ "Sub Total", "", "", "20,9998.00/-"], 
+            [ "Discount", "", "", "-3,000.00/-"], 
+            [ "Total", "", "", "17,998.00/-"], 
+        ],  )
 
 main()
