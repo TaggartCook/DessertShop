@@ -1,9 +1,9 @@
 from abc import ABC, abstractmethod
-import receipt
+
 class DessertItem(ABC):
     def __init__(self,name):
         self.name = name
-        self.tax_percent = 7.25
+        self.tax_percent = .0725
 
     @abstractmethod
 
@@ -54,6 +54,7 @@ class Sundae(IceCream):
         cost = (self.scoop_count * self.price_per_scoop)+(self.topping_price)
         return cost
 
+"""
 class Order():
     def __init__(self):
         self.order = []
@@ -89,28 +90,17 @@ def main():
         print(item.name)
     #data: list[list[str,int,float]]
     data = []
+    data.append(["Item", "Cost", "Tax"])
     for i in order1.order:
-        data.append([i.name,i.calculate_cost(),round(i.calculate_tax())])
-    data.append(["Order Subtotals",order1.order_cost,order1.order_tax])
-    data.append(["Order Total", order1.order_cost() + order1.order_tax()])
-
+        data.append([i.name,i.calculate_cost(),round(i.calculate_tax()*100)])
+    data.append(["Order Subtotals",order1.order_cost(),round(order1.order_tax())])
+    data.append(["Order Total", round(order1.order_cost() + order1.order_tax()*100), ""])
+    data.append(["Total Items in Order","", len(order1)])
 
     print("Total number of items in order:", len(order1))
 
     
     receipt.make_receipt(
-        DATA = [ 
-            [ "Date" , "Name", "Subscription", "Price (Rs.)" ], 
-            [ 
-                "16/11/2020", 
-                "Full Stack Development with React & Node JS - Live", 
-                "Lifetime", 
-                "10,999.00/-", 
-            ], 
-            [ "16/11/2020", "Geeks Classes: Live Session", "6 months", "9,999.00/-"], 
-            [ "Sub Total", "", "", "20,9998.00/-"], 
-            [ "Discount", "", "", "-3,000.00/-"], 
-            [ "Total", "", "", "17,998.00/-"], 
-        ],  )
+       data , "receipt.pdf" )
 
-main()
+main()"""
