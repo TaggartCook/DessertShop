@@ -38,9 +38,9 @@ def main():
     data = []
     data.append(["Item", "Cost", "Tax"])
     for i in order1.order:
-        data.append([i.name,round(i.calculate_cost()*100),round(i.calculate_tax()*100)])
-    data.append(["Order Subtotals",order1.order_cost(),round(order1.order_tax())])
-    data.append(["Order Total", round(order1.order_cost() + order1.order_tax()*100), ""])
+        data.append([i.name,round(i.calculate_cost()*100)/100,round(i.calculate_tax()*100)/100])
+    data.append(["Order Subtotals",round(order1.order_cost()*100)/100,round(order1.order_tax()*100)/100])
+    data.append(["Order Total", round((order1.order_cost() + order1.order_tax())*100)/100, ""])
     data.append(["Total Items in Order","", len(order1)])
 
     print("Total number of items in order:", len(order1))
