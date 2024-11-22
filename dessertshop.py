@@ -1,30 +1,21 @@
 import dessert
 import receipt
 
-class Order():
+class DessertShop():
     def __init__(self):
-        self.order = []
+        pass
 
-    def __len__(self):
-        return len(self.order)
-
-    def add(self,added_item):
-        self.order.append(added_item)    
-
-    def order_cost(self):
-        total_cost = 0.00
-        for i in self.order:
-            total_cost += i.calculate_cost()
-        return total_cost
-    
-    def order_tax(self):
-        total_tax = 0.00
-        for i in self.order:
-            total_tax += i.calculate_tax()
-        return round(total_tax)
+    def user_prompt_candy():
+        pass
+    def user_prompt_cookie():
+        pass
+    def user_prompt_icecream():
+        pass
+    def user_prompt_sundae():
+        pass
 
 def main():
-    order1 = Order()
+    order1 = dessert.Order()
     order1.add(dessert.Candy("Candy Corn", 1.5, .25))
     order1.add(dessert.Candy("Gummy Bears", .25, .35))
     order1.add(dessert.Cookie("Chocolate Chip", 6, 3.99))    

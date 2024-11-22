@@ -54,6 +54,27 @@ class Sundae(IceCream):
         cost = (self.scoop_count * self.price_per_scoop)+(self.topping_price)
         return cost
 
+class Order():
+    def __init__(self):
+        self.order = []
+
+    def __len__(self):
+        return len(self.order)
+
+    def add(self,added_item):
+        self.order.append(added_item)    
+
+    def order_cost(self):
+        total_cost = 0.00
+        for i in self.order:
+            total_cost += i.calculate_cost()
+        return total_cost
+    
+    def order_tax(self):
+        total_tax = 0.00
+        for i in self.order:
+            total_tax += i.calculate_tax()
+        return round(total_tax)
 """
 class Order():
     def __init__(self):
