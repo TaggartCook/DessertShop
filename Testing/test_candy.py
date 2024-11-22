@@ -16,3 +16,7 @@ def test_candy():
     assert candy1.price_per_pound == 5.25
     assert candy2.price_per_pound == 9.50
     assert candy3.price_per_pound == 7.75
+
+    assert candy1.calculate_cost() == candy1.candy_weight * candy1.price_per_pound
+
+    assert candy1.calculate_tax() == candy1.calculate_cost() * candy1.tax_percent

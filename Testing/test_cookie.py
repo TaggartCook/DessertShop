@@ -16,3 +16,7 @@ def test_cookie():
     assert cookie1.price_per_dozen == 15.00
     assert cookie2.price_per_dozen == 14.50
     assert cookie3.price_per_dozen == 16.50
+
+    assert cookie1.calculate_cost() == cookie1.price_per_dozen * cookie1.cookie_quantity
+
+    assert cookie1.calculate_tax() == cookie1.calculate_cost() * cookie1.tax_percent

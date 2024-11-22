@@ -24,3 +24,7 @@ def test_sundae():
     assert sundae1.topping_price == 1.55
     assert sundae2.topping_price == 3.25
     assert sundae3.topping_price == 2.50
+
+    assert sundae1.calculate_cost() == sundae1.scoop_count * sundae1.price_per_scoop + sundae1.topping_price
+
+    assert sundae1.calculate_tax() == sundae1.calculate_cost() * sundae1.tax_percent
