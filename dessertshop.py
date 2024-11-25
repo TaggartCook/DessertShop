@@ -6,12 +6,48 @@ class DessertShop():
         pass
 
     def user_prompt_candy():
-        pass
+        cn = input("What kind of candy do you want? ")
+        while True:
+            cw = input("How many pounds do you want? ")
+            if cw.isdigit():
+                break
+        while True:
+            cppp = input("How much does it cost per pound? ")
+            if cppp.isdigit():
+                break
+        return dessert.Candy(cn,cw,cppp)
+
     def user_prompt_cookie():
-        pass
+        cookieitem = []
+        con = input("What kind of cookie do you want? ")
+        if type.con == str:
+            cookieitem.append(con)
+        ca = input("How many dozens do you want? ")
+        if type.ca == int:
+            cookieitem.append(ca)
+        cppd = input("How much does it cost per dozen? ")
+        if type.cppd == float:
+            cookieitem.append(cppd)
+
     def user_prompt_icecream():
-        pass
+        icecreamitem = []
+        icn = input("What kind of icecream do you want? ")
+        if type.icn == str:
+            icecreamitem.append(icn)
+        icsc = input("How many scoops do you want? ")
+        if type.icn == int:
+            icecreamitem.append(icsc)
+        icpps = input("How much does it cost per scoop? ")
+        if type.icpps == float:
+            icecreamitem.append(icpps)
+
     def user_prompt_sundae():
+        sundaeitem = []
+        sn = input("What kind of icecream do you want? ")
+        ssc = input("How many scoops do you want? ")
+        spps = input("How much does it cost per scoop? ") 
+        stn = input("What topping would you like? ")
+        stp = input("How much does it cost for the topping? ")       
         pass
 
 def main():
