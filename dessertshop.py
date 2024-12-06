@@ -5,7 +5,7 @@ class DessertShop():
     def __init__(self):
         pass
 
-    def user_prompt_candy():
+    def user_prompt_candy(self):
         cn = input("What kind of candy do you want? ")
         while True:
             cw = input("How many pounds do you want? ")
@@ -17,7 +17,7 @@ class DessertShop():
                 break
         return dessert.Candy(cn,cw,cppp)
 
-    def user_prompt_cookie():
+    def user_prompt_cookie(self):
         con = input("What kind of cookie do you want? ")
         while True:
             ca = input("How many dozens do you want? ")
@@ -29,7 +29,7 @@ class DessertShop():
                 break
         return dessert.Cookie(con,ca,cppd)
 
-    def user_prompt_icecream():
+    def user_prompt_icecream(self):
         icf = input("What kind of icecream do you want? ")
         while True:
             icsc = input("How many scoops do you want? ")
@@ -41,7 +41,7 @@ class DessertShop():
                 break
         return dessert.IceCream(icf,icsc,icpps)
 
-    def user_prompt_sundae():
+    def user_prompt_sundae(self):
         sn = input("What kind of icecream do you want? ")
         while True:
             ssc = input("How many scoops do you want? ")
