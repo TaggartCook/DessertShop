@@ -10,10 +10,13 @@ class DessertShop():
         while True:
             cw = input("How many pounds do you want? ")
             if cw.isdigit():
+                cw = int(cw)
                 break
         while True:
             cppp = input("How much does it cost per pound? ")
-            if cppp.isdigit():
+            c2=cppp.split(".")
+            if c2[0].isdigit() and (c2[1].isdigit() if len(c2)==2 else True):
+                cppp = float(cppp)
                 break
         return dessert.Candy(cn,cw,cppp)
 
@@ -22,10 +25,13 @@ class DessertShop():
         while True:
             ca = input("How many dozens do you want? ")
             if ca.isdigit():
+                ca = int(ca)
                 break
         while True:
             cppd = input("How much does it cost per dozen? ")
-            if cppd.isdigit():
+            c2=cppd.split(".")
+            if c2[0].isdigit() and (c2[1].isdigit() if len(c2)==2 else True):
+                cppd = float(cppd)
                 break
         return dessert.Cookie(con,ca,cppd)
 
@@ -34,10 +40,13 @@ class DessertShop():
         while True:
             icsc = input("How many scoops do you want? ")
             if icsc.isdigit():
+                icsc = int(icsc)
                 break
         while True:
-            icpps = input("How much does it cost per scoop? ")
-            if icpps.isdigit():
+            icpps = "0"+input("How much does it cost per scoop? ")
+            ic2=icpps.split(".")
+            if ic2[0].isdigit() and (ic2[1].isdigit() if len(ic2)==2 else True):
+                icpps = float(icpps)
                 break
         return dessert.IceCream(icf,icsc,icpps)
 
@@ -46,15 +55,20 @@ class DessertShop():
         while True:
             ssc = input("How many scoops do you want? ")
             if ssc.isdigit():
+                ssc = int(ssc)
                 break
         while True:
-            spps = input("How much does it cost per scoop? ") 
-            if spps.isdigit():
+            spps = "0"+input("How much does it cost per scoop? ") 
+            sp2=spps.split(".")
+            if sp2[0].isdigit() and (sp2[1].isdigit() if len(sp2)==2 else True):
+                spps = float(spps)
                 break
         stn = input("What topping would you like? ")
         while True:
-            stp = input("How much does it cost for the topping? ")       
-            if stp.isdigit():
+            stp = "0"+input("How much does it cost for the topping? ")       
+            st2=stp.split(".")
+            if st2[0].isdigit() and (st2[1].isdigit() if len(st2)==2 else True):
+                stp = float(stp)
                 break
         return dessert.Sundae(sn,ssc,spps,stn,stp)
 
