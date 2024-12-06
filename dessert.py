@@ -1,9 +1,11 @@
 from abc import ABC, abstractmethod
+import packaging
 
-class DessertItem(ABC):
+class DessertItem(ABC, packaging.Packaging):
     def __init__(self,name):
         self.name = name
         self.tax_percent = .0725
+        self.packaging = None
 
     @abstractmethod
 
